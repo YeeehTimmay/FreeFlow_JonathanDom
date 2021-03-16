@@ -30,19 +30,23 @@ public class Board {
             throw new IllegalArgumentException();
         }
     }
-    // todo toString()
 
-    public void showRaster() {
+    public Field[][] getRaster() {
+        return raster;
+    }
+
+    public String createRasterString() {
+        String rasterString = "";
         for (int i = 0; i <= 4; i++) {
             System.out.print(
                     "-------------------------------\n|     |     |     |     |     |\n|     |     |     |     |     |\n");
         }
         System.out.print("-------------------------------\n");
+        return rasterString;
     }
 
     @Override
     public String toString() {
-        return "Board []";
+        return createRasterString();
     }
-
 }
