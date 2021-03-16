@@ -1,18 +1,17 @@
 /**
- * Jonathan Dom
- * 1/6/2021
+ * Jonathan Dom 1/6/2021
  */
 public enum Type {
-    EMPTY("Empty"), CIRCLE("Circle"), LINE("Line");
+    EMPTY(" "), CIRCLE("*"), LINE(":");
 
-    private String types;
+    private String type;
 
-    private Type(String types){
-        this.types = types;
-
+    private Type(String type) {
+        this.type = type;
 
     }
-    public String getTypes(){
-        return types;
+
+    public String getType() {
+        return type;
     }
 }
