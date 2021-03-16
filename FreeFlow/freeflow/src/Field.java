@@ -33,4 +33,12 @@ public class Field {
     public int getY() {
         return y;
     }
+
+    public void setType(Type type) {
+        this.type = type;
+    }
+
+    public void setColor(Colors color) {
+        this.color = color;
+    }
 }
