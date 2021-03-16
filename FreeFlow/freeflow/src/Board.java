@@ -11,7 +11,7 @@ public class Board {
     }
 
     private void createRaster(int size) {
-        if (!(size > 0)) {
+        if (size > 0) {
             raster = new Field[size][size];
             for (int i = 0; i < size; i++) {
                 for (int j = 0; j < size; j++) {
