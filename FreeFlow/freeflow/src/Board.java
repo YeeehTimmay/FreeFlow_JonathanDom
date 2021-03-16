@@ -35,7 +35,18 @@ public class Board {
         return raster;
     }
 
-    public String createRasterString() {
+    public void setField(int x, int y, Type type, Colors color) {
+
+    }
+
+    public boolean checkValidField(int x, int y) {
+        if ((x >= 0 && x < size) && (y >= 0 && y < size)) {
+            return true;
+        }
+        return false;
+    }
+
+    private String createRasterString() {
         String rasterString = "";
         for (int i = 0; i <= 4; i++) {
             System.out.print(
