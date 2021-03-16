@@ -52,15 +52,18 @@ public class Board {
     }
 
     private String createRasterString() {
-        String rasterString = "-------------------------------\n";
+        String rasterString = "";
+        String line = "";
         for (int i = 0; i < size; i++) {
             rasterString += "|";
+            line += "------";
             for (int j = 0; j < size; j++) {
                 rasterString += "  " + raster[i][j] + "  |";
             }
             rasterString += "\n";
         }
-        rasterString += "-------------------------------";
+        line += "-";
+        rasterString = line + "\n" + rasterString + line;
         return rasterString;
     }
 
