@@ -24,7 +24,7 @@ public class Board {
     }
 
     public Field getField(int x, int y) {
-        if ((x >= 0 && x < size) && (y >= 0 && y < size)) {
+        if (checkValidField(x, y)) {
             return raster[x][y];
         } else {
             throw new IllegalArgumentException();
@@ -36,7 +36,12 @@ public class Board {
     }
 
     public void setField(int x, int y, Type type, Colors color) {
-
+        if (checkValidField(x, y)) {
+            raster[x][y].setColor(color);
+            raster[x][y].setType(type);
+        } else {
+            throw new IllegalArgumentException();
+        }
     }
 
     public boolean checkValidField(int x, int y) {
