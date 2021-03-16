@@ -8,10 +8,14 @@ public class Field {
     private Colors color;
 
     public Field(int x, int y, Type type, Colors color) {
-        this.x = x;
-        this.y = y;
-        this.type = type;
-        this.color = color;
+        if (x >= 0 && y >= 0) {
+            this.x = x;
+            this.y = y;
+            this.type = type;
+            this.color = color;
+        } else {
+            throw new IllegalArgumentException();
+        }
     }
 
     public Field(int x, int y, Type type) {
