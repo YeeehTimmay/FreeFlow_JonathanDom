@@ -45,4 +45,10 @@ public class Field {
     public void setColor(Colors color) {
         this.color = color;
     }
+
+    @Override
+    public String toString() {
+        return color.getColor() + type + "\033[0m";
+    }
+
 }
