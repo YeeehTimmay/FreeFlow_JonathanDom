@@ -1,6 +1,5 @@
 /**
- * Jonathan Dom
- * 1/6/2021
+ * Jonathan Dom 1/6/2021
  */
 public class Player {
     private String name;
@@ -26,6 +25,6 @@ public class Player {
         this.highscore = highscore;
     }
 
-    //TODO
+    // TODO
 
 }
