@@ -9,7 +9,7 @@ public class Level {
 
     }
 
-    public Field[][] getLevel(int levelNumber) {
+    /* public Field[][] getLevel(int levelNumber) {
         this.fields = board.createRaster();
         switch (levelNumber) {
         case 1:
@@ -36,7 +36,7 @@ public class Level {
         }
         return fields;
 
-    }
+    } */
 
     public void makeMove(int x, int y, Colors color) {
 

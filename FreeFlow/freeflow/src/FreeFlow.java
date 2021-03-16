@@ -12,7 +12,7 @@ public class FreeFlow {
 
     public void Start() {
         System.out.print("Select level: ");
-        level.getLevel(scanner.nextInt());
+        // level.getLevel(scanner.nextInt());
     }
 
     // private static Settings settings;
