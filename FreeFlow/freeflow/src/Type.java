@@ -2,7 +2,7 @@
  * Jonathan Dom 1/6/2021
  */
 public enum Type {
-    EMPTY("Empty"), CIRCLE("Circle"), LINE("Line");
+    EMPTY(" "), CIRCLE("*"), LINE(":");
 
     private String type;
 
