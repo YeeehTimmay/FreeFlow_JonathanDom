@@ -13,8 +13,8 @@ public class Board {
     private void createRaster(int size) {
         if (!(size > 0)) {
             raster = new Field[size][size];
-            for (int i = 0; size > i; i++) {
-                for (int j = 0; size > i; i++) {
+            for (int i = 0; i < size; i++) {
+                for (int j = 0; j < size; j++) {
                     raster[i][j] = new Field(i, j, Type.EMPTY);
                 }
             }
@@ -52,12 +52,15 @@ public class Board {
     }
 
     private String createRasterString() {
-        String rasterString = "";
-        for (int i = 0; i <= 4; i++) {
-            System.out.print(
-                    "-------------------------------\n|     |     |     |     |     |\n|     |     |     |     |     |\n");
+        String rasterString = "-------------------------------\n";
+        for (int i = 0; i < size; i++) {
+            rasterString += "|";
+            for (int j = 0; j < size; j++) {
+                rasterString += "  " + raster[i][j] + "  |";
+            }
+            rasterString += "\n";
         }
-        System.out.print("-------------------------------\n");
+        rasterString += "-------------------------------";
         return rasterString;
     }
 
