@@ -14,12 +14,23 @@ public class Field {
         this.color = color;
     }
 
+    public Field(int x, int y, Type type) {
+        this(x, y, type, null);
+    }
+
     public Colors getColor() {
         return color;
     }
 
-    @Override
-    public String toString() {
-        return "Field [color=" + color + ", type=" + type + ", x=" + x + ", y=" + y + "]";
+    public Type getType() {
+        return type;
+    }
+
+    public int getX() {
+        return x;
+    }
+
+    public int getY() {
+        return y;
     }
 }
