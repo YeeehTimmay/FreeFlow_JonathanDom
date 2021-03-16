@@ -55,16 +55,17 @@ public class Board {
         String rasterString = "";
         String line = "";
         for (int i = 0; i < size; i++) {
-            rasterString += "|";
             line += "------";
+        }
+        line += "-";
+        for (int i = 0; i < size; i++) {
+            rasterString += "|";
             for (int j = 0; j < size; j++) {
                 rasterString += "  " + raster[i][j] + "  |";
             }
-            rasterString += "\n";
+            rasterString += "\n" + line + "\n";
         }
-        line += "-";
-        rasterString = line + "\n" + rasterString + line;
-        return rasterString;
+        return line + "\n" + rasterString;
     }
 
     @Override
