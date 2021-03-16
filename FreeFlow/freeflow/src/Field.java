@@ -48,18 +48,11 @@ public class Field {
 
     @Override
     public String toString() {
-        String typeString;
-        switch (type.getType()) {
-        case "Circle":
-            typeString = "*";
-            break;
-        case "Line":
-            typeString = ":";
-            break;
-        default:
-            typeString = " ";
+        if (color != null) {
+            return color.getColor() + type.getType() + "\033[0m";
+        } else {
+            return type.getType() + "\033[0m";
         }
-        return color.getColor() + typeString + "\033[0m";
     }
 
 }
