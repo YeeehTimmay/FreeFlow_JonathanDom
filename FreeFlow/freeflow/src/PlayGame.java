@@ -9,7 +9,6 @@ public class PlayGame {
         Scanner scanner = new Scanner(System.in);
         Player player = new Player("A");
         Board board = new Board(5);
-        Level level = new Level();
-        System.out.print("Select level: ");
+        System.out.println(board);
     }
 }
