@@ -41,9 +41,9 @@ public class Level {
             System.out.print("reeeeeeeeeee: ");
             int moveX = scanner.nextInt();
             int moveY = scanner.nextInt();
-            Direction direction = getDirection(scanner.next().charAt(0));
             if (!(board.checkValidField(moveX, moveY)))
                 throw new IllegalArgumentException();
+            Direction direction = getDirection(scanner.next().charAt(0), moveX, moveY);
             checkNextField(moveX, moveY, direction);
             switch (direction) {
             case NORTH:
@@ -65,6 +65,7 @@ public class Level {
             }
             moves += 1;
         } catch (Exception e) {
+            showBoard();
             makeMove();
         }
     }
@@ -92,7 +93,7 @@ public class Level {
         }
     }
 
-    private Direction getDirection(char charAt) {
+    private Direction getDirection(char charAt, int x, int y) {
         switch (Character.toLowerCase(charAt)) {
         case 'n':
             return Direction.NORTH;
@@ -103,6 +104,8 @@ public class Level {
         case 'w':
             return Direction.WEST;
         default:
+            if (board.getField(x, y).getType() != Type.CIRCLE)
+                board.clearField(x, y);
             throw new IllegalArgumentException();
         }
     }
