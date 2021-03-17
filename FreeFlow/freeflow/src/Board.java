@@ -15,7 +15,7 @@ public class Board {
             raster = new Field[size][size];
             for (int i = 0; i < size; i++) {
                 for (int j = 0; j < size; j++) {
-                    raster[i][j] = new Field(i, j, Type.EMPTY);
+                    raster[i][j] = new Field(j, i, Type.EMPTY);
                 }
             }
         } else {
