@@ -1,74 +1,85 @@
-import java.util.Scanner;
-
 /**
- * Jonathan Dom
- * 12/13/2020
+ * Jonathan Dom 12/13/2020
  */
 public class Board {
-    private int levelNumber;
-    private Level level;
+    private int size;
     private Field[][] raster;
-    Scanner scanner = new Scanner(System.in);
 
-
-
-    public Board(Field[][] raster) {
-        this.raster = raster;
-        createRaster();
-
+    public Board(int size) {
+        createRaster(size);
+        this.size = size;
     }
 
-    public Board() {
+    private void createRaster(int size) {
+        if (size > 0) {
+            raster = new Field[size][size];
+            for (int i = 0; i < size; i++) {
+                for (int j = 0; j < size; j++) {
+                    raster[i][j] = new Field(i, j, Type.EMPTY);
+                }
+            }
+        } else {
+            throw new IllegalArgumentException();
+        }
+    }
 
+    public Field getField(int x, int y) {
+        if (checkValidField(x, y)) {
+            return raster[x][y];
+        } else {
+            throw new IllegalArgumentException();
+        }
     }
 
     public Field[][] getRaster() {
-        createRaster();
         return raster;
     }
 
-    public void createRaster(){
-        raster = new Field[5][5];
-    }
-    public void LevelSelect(int levelNumber){
-        level = new Level();
-        level.getLevel(levelNumber);
-        showRaster();
-    }
-
-    public void showRaster(){
-        for (int i = 0; i <= 4; i++) {
-            System.out.print("-------------------------------\n|     |     |     |     |     |\n|     |     |     |     |     |\n");
+    public void setField(int x, int y, Type type, Colors color) {
+        if (checkValidField(x, y)) {
+            raster[x][y].setColor(color);
+            raster[x][y].setType(type);
+        } else {
+            throw new IllegalArgumentException();
         }
-        System.out.print("-------------------------------\n");
     }
 
-    public void makeMove(){
-        System.out.println("Give the coordinates and color to make a move.");
-        int moveX = scanner.nextInt();
-        int moveY = scanner.nextInt();
-        char color = scanner.next().charAt(0);
-
-
-        Colors colorE;
-        switch (color){
-            case 'R' :  colorE = Colors.RED;break;
-            case 'B' :  colorE = Colors.BLUE;break;
-            case 'G' :  colorE = Colors.GREEN;break;
-            case 'Y' :  colorE = Colors.YELLOW;break;
-
-
+    public boolean checkValidField(int x, int y) {
+        if ((x >= 0 && x < size) && (y >= 0 && y < size)) {
+            return true;
         }
-
-
-
-
-
-
-
+        return false;
     }
 
+    public boolean checkForEmptyFields() {
+        for (int i = 0; i < size; i++) {
+            for (int j = 0; j < size; j++) {
+                if (raster[i][j].getType() == Type.EMPTY)
+                    return true;
+            }
+        }
+        return false;
+    }
 
+    private String createRasterString() {
+        String rasterString = "";
+        String line = "";
+        for (int i = 0; i < size; i++) {
+            line += "------";
+        }
+        line += "-";
+        for (int i = 0; i < size; i++) {
+            rasterString += "|";
+            for (int j = 0; j < size; j++) {
+                rasterString += "  " + raster[i][j] + "  |";
+            }
+            rasterString += "\n" + line + "\n";
+        }
+        return line + "\n" + rasterString;
+    }
 
-
+    @Override
+    public String toString() {
+        return createRasterString();
+    }
 }
