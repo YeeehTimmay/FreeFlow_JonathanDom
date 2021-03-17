@@ -8,6 +8,9 @@ public class Level {
     public Level(LevelSizes size) {
         createLevel(size);
     }
+    public void showBoard(){
+        System.out.println(board);
+    }
 
     private void createLevel(LevelSizes size) {
         board = new Board(size.getLevelSize());
