@@ -33,7 +33,7 @@ public class IO {
     }
 
     public LevelSizes promptForLevelSize() {
-        switch (promptForInt("")) {
+        switch (promptForInt("Choose 5, 6 or 7 for the level size")) {
         case 5:
             return LevelSizes.size5;
         case 6:
