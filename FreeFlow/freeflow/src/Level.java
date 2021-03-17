@@ -40,7 +40,7 @@ public class Level {
 
     public void makeMove(int x, int y, Colors color) {
 
-        fields[x][y] = new Field(x, y, Type.LINE, color);
+        fields[x][y] = new Field(x, y, Type.VERTICAL, color);
 
     }
 
