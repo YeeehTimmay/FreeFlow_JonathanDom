@@ -37,8 +37,8 @@ public class Board {
 
     public void setField(int x, int y, Type type, Colors color) {
         if (checkValidField(x, y)) {
-            raster[x][y].setColor(color);
-            raster[x][y].setType(type);
+            raster[y][x].setColor(color);
+            raster[y][x].setType(type);
         } else {
             throw new IllegalArgumentException();
         }
