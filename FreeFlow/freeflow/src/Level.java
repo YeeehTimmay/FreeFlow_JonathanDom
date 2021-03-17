@@ -43,16 +43,20 @@ public class Level {
             checkNextField(moveX, moveY, direction);
             switch (direction) {
             case NORTH:
-                board.getField(moveX, moveY - 1).setType(getMoveType(moveX, moveY, direction));
+                board.setField(moveX, moveY - 1, getMoveType(moveX, moveY, direction),
+                        board.getField(moveX, moveY).getColor());
                 break;
             case EAST:
-                board.getField(moveX + 1, moveY).setType(getMoveType(moveX, moveY, direction));
+                board.setField(moveX + 1, moveY, getMoveType(moveX, moveY, direction),
+                        board.getField(moveX, moveY).getColor());
                 break;
             case SOUTH:
-                board.getField(moveX, moveY + 1).setType(getMoveType(moveX, moveY, direction));
+                board.setField(moveX, moveY + 1, getMoveType(moveX, moveY, direction),
+                        board.getField(moveX, moveY).getColor());
                 break;
             case WEST:
-                board.getField(moveX - 1, moveY).setType(getMoveType(moveX, moveY, direction));
+                board.setField(moveX - 1, moveY, getMoveType(moveX, moveY, direction),
+                        board.getField(moveX, moveY).getColor());
                 break;
             }
         } catch (Exception e) {
