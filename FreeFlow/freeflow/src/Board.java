@@ -25,7 +25,7 @@ public class Board {
 
     public Field getField(int x, int y) {
         if (checkValidField(x, y)) {
-            return raster[x][y];
+            return raster[y][x];
         } else {
             throw new IllegalArgumentException();
         }
