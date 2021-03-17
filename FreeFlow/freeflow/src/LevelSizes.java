@@ -1,6 +1,6 @@
 public enum LevelSizes {
 
-    size4(4), size5(5), size6(6);
+    size5(5), size6(6), size7(7);
 
     private int size;
 

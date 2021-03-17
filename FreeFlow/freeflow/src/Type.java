@@ -2,7 +2,7 @@
  * Jonathan Dom 1/6/2021
  */
 public enum Type {
-    EMPTY(" "), CIRCLE("*"), VERTICAL("|"), HORIZONTAL("-");
+    EMPTY(" "), CIRCLE("*"), VERTICAL("|"), HORIZONTAL("-"), CORNER("+");
 
     private String type;
 
