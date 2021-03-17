@@ -31,6 +31,10 @@ public class Level {
 
     }
 
+    public boolean checkIfWon() {
+        return (!board.checkForEmptyFields());
+    }
+
     public void makeMove() {
         try {
             Scanner scanner = new Scanner(System.in);
