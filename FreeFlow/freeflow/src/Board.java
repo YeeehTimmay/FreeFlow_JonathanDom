@@ -69,7 +69,7 @@ public class Board {
         }
     }
 
-    public void clearFields() {
+    public void clearBoard() {
         for (int i = 0; i < size; i++) {
             for (int j = 0; j < size; j++) {
                 raster[i][j] = new Field(j, i, Type.EMPTY);
