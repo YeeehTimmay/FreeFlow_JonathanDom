@@ -35,6 +35,10 @@ public class Board {
         return raster;
     }
 
+    public int getSize() {
+        return size;
+    }
+
     public void setField(int x, int y, Type type, Colors color) {
         if (checkValidField(x, y)) {
             raster[y][x].setColor(color);
