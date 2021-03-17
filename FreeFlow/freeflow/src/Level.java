@@ -38,7 +38,7 @@ public class Level {
     public void makeMove() {
         try {
             Scanner scanner = new Scanner(System.in);
-            System.out.print("reeeeeeeeeee: ");
+            System.out.print("Make a move ( x y direction (n, e, s, w)): ");
             int moveX = scanner.nextInt();
             int moveY = scanner.nextInt();
             if (!(board.checkValidField(moveX, moveY)))
