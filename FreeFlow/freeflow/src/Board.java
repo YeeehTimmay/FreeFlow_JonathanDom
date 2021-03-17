@@ -51,6 +51,16 @@ public class Board {
         return false;
     }
 
+    public boolean checkForEmptyFields() {
+        for (int i = 0; i < size; i++) {
+            for (int j = 0; j < size; j++) {
+                if (raster[i][j].getType() == Type.EMPTY)
+                    return true;
+            }
+        }
+        return false;
+    }
+
     private String createRasterString() {
         String rasterString = "";
         String line = "";
