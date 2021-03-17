@@ -41,7 +41,20 @@ public class Level {
             if (!(board.checkValidField(moveX, moveY)))
                 throw new IllegalArgumentException();
             checkNextField(moveX, moveY, direction);
-            board.getField(moveX, moveY).setType(getMoveType(moveX, moveY, direction));
+            switch (direction) {
+            case NORTH:
+                board.getField(moveX, moveY - 1).setType(getMoveType(moveX, moveY, direction));
+                break;
+            case EAST:
+                board.getField(moveX + 1, moveY).setType(getMoveType(moveX, moveY, direction));
+                break;
+            case SOUTH:
+                board.getField(moveX, moveY + 1).setType(getMoveType(moveX, moveY, direction));
+                break;
+            case WEST:
+                board.getField(moveX - 1, moveY).setType(getMoveType(moveX, moveY, direction));
+                break;
+            }
         } catch (Exception e) {
             makeMove();
         }
