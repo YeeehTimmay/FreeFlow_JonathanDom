@@ -7,7 +7,6 @@ public class PlayGame {
         Player player = new Player("A");
         Level level = new Level(io.promptForLevelSize());
         level.showBoard();
-        while (level.makeMove())
         level.makeMove();
     }
 
