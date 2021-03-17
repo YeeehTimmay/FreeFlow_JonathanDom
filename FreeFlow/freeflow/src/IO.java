@@ -12,6 +12,16 @@ public class IO {
         return in.nextLine();
     }
 
+    public int promptForInt(String prompt) {
+        try {
+            System.out.print(prompt + ": ");
+            int res = Integer.parseInt(in.nextLine());
+            return res;
+        } catch (Exception e) {
+            return promptForInt(prompt);
+        }
+    }
+
     public boolean promptForBoolean(String prompt) {
         System.out.print(prompt + " (y/n): ");
         String res = in.nextLine();
@@ -23,22 +33,15 @@ public class IO {
     }
 
     public LevelSizes promptForLevelSize() {
-        System.out.print("Choose 5, 6 or 7 for the level size: ");
-        try {
-            int res = Integer.parseInt(in.nextLine());
-            switch (res) {
-            case 5:
-                return LevelSizes.size5;
-            case 6:
-                return LevelSizes.size6;
-            case 7:
-                return LevelSizes.size7;
-            default:
-                promptForLevelSize();
-            }
-        } catch (NumberFormatException e) {
-            promptForLevelSize();
+        switch (promptForInt("")) {
+        case 5:
+            return LevelSizes.size5;
+        case 6:
+            return LevelSizes.size6;
+        case 7:
+            return LevelSizes.size7;
+        default:
+            return promptForLevelSize();
         }
-        return null;
     }
 }

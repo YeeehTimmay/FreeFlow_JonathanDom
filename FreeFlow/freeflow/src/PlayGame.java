@@ -1,22 +1,12 @@
-import java.util.Scanner;
-
 /**
  * Jonathan Dom 1/6/2021
  */
 public class PlayGame {
     public static void main(String[] args) {
-        // ! remove board and add makeMove to level and change constructor
-        Scanner scanner = new Scanner(System.in);
-        Player player = new Player("A");
         IO io = new IO();
-
-        io.promptForLevelSize();
-
-
-
-
-
-
+        Player player = new Player("A");
+        Level level = new Level(LevelSizes.size5);
+        io.show(Integer.toString(io.promptForInt("int")));
     }
 
 }
