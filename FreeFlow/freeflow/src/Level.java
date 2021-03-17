@@ -59,6 +59,7 @@ public class Level {
                         board.getField(moveX, moveY).getColor());
                 break;
             }
+            moves += 1;
         } catch (Exception e) {
             makeMove();
         }
