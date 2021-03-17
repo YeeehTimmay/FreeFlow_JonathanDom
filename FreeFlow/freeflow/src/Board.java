@@ -61,6 +61,14 @@ public class Board {
         return false;
     }
 
+    public void clearFields() {
+        for (int i = 0; i < size; i++) {
+            for (int j = 0; j < size; j++) {
+                raster[i][j] = new Field(j, i, Type.EMPTY);
+            }
+        }
+    }
+
     private String createRasterString() {
         String rasterString = "";
         String line = "";
