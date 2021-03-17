@@ -1,4 +1,3 @@
-import java.util.InputMismatchException;
 import java.util.Scanner;
 
 public class IO {
@@ -27,29 +26,18 @@ public class IO {
         System.out.print("Choose 5, 6 or 7 for the level size: ");
         try {
             int res = Integer.parseInt(in.nextLine());
-            if (res > 7 || res < 5) {
+            switch (res) {
+            case 5:
+                return LevelSizes.size5;
+            case 6:
+                return LevelSizes.size6;
+            case 7:
+                return LevelSizes.size7;
+            default:
                 promptForLevelSize();
             }
-            else {
-                switch (res) {
-                    case 5:
-                        return LevelSizes.size5;
-                    break;
-                    case 6:
-                        return LevelSizes.size6;
-                    break;
-                    case 7:
-                        return LevelSizes.size7;
-                    break;
-
-
-                }
-            }
-
         } catch (NumberFormatException e) {
             promptForLevelSize();
-
-
         }
         return null;
     }
