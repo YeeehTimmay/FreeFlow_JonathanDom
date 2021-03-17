@@ -27,6 +27,16 @@ public class Level {
         }
 
     }
+    public boolean makeMove(int x, int y, Direction direction){
+        if (board.getField(x,y).getType() == Type.EMPTY) return false;
+
+        if (!(board.checkValidField(x,y))){
+            System.out.println("That move is out of bounds. Try another. ");
+
+        }
+
+        return true;
+    }
 
     private void createLevel5(int level) {
         switch (level) {

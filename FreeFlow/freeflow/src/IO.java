@@ -22,6 +22,7 @@ public class IO {
         }
     }
 
+
     public boolean promptForBoolean(String prompt) {
         System.out.print(prompt + " (y/n): ");
         String res = in.nextLine();
@@ -31,6 +32,8 @@ public class IO {
         }
         return res.equalsIgnoreCase("y");
     }
+
+
 
     public LevelSizes promptForLevelSize() {
         switch (promptForInt("Choose 5, 6 or 7 for the level size")) {
