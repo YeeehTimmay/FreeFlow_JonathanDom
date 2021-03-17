@@ -6,8 +6,9 @@ public class PlayGame {
         IO io = new IO();
         Player player = new Player("A");
         Level level = new Level(io.promptForLevelSize());
-        while (level.) {
-            
+        while (!level.checkIfWon()) {
+            level.showBoard();
+            level.makeMove();
         }
     }
 
