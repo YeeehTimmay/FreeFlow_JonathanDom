@@ -96,10 +96,12 @@ public class Level {
                 return Type.CORNER;
             if (board.getField(x, y).getType() == Type.CIRCLE)
                 return Type.CIRCLE;
-            if (board.getField(x,y + 1).getType() != board.getField(x,y).getType()) {
-                board.setField(x,y + 1, Type.CORNER,board.getField(x,y + 1).getColor());
+            if (board.getField(x, y + 1).getType() != board.getField(x, y).getType()) {
+                if (board.getField(x, y + 1).getType() != Type.CIRCLE)
+                    board.setField(x, y + 1, Type.CORNER, board.getField(x, y + 1).getColor());
                 return Type.VERTICAL;
-            };
+            }
+            ;
 
         case EAST:
             x += 1;
@@ -107,10 +109,12 @@ public class Level {
                 return Type.CORNER;
             if (board.getField(x, y).getType() == Type.CIRCLE)
                 return Type.CIRCLE;
-            if (board.getField(x - 1,y ).getType() != board.getField(x,y).getType()) {
-                board.setField(x - 1,y , Type.CORNER,board.getField(x - 1,y ).getColor());
+            if (board.getField(x - 1, y).getType() != board.getField(x, y).getType()) {
+                if (board.getField(x - 1, y).getType() != Type.CIRCLE)
+                    board.setField(x - 1, y, Type.CORNER, board.getField(x - 1, y).getColor());
                 return Type.HORIZONTAL;
-            };
+            }
+            ;
 
         case SOUTH:
             y += 1;
@@ -118,10 +122,12 @@ public class Level {
                 return Type.CORNER;
             if (board.getField(x, y).getType() == Type.CIRCLE)
                 return Type.CIRCLE;
-            if (board.getField(x,y - 1 ).getType() != board.getField(x,y).getType()) {
-                board.setField(x,y - 1 , Type.CORNER,board.getField(x ,y - 1 ).getColor());
+            if (board.getField(x, y - 1).getType() != board.getField(x, y).getType()) {
+                if (board.getField(x, y - 1).getType() != Type.CIRCLE)
+                    board.setField(x, y - 1, Type.CORNER, board.getField(x, y - 1).getColor());
                 return Type.VERTICAL;
-            };
+            }
+            ;
 
         case WEST:
             x -= 1;
@@ -129,11 +135,13 @@ public class Level {
                 return Type.CORNER;
             if (board.getField(x, y).getType() == Type.CIRCLE)
                 return Type.CIRCLE;
-            if (board.getField(x + 1,y ).getType() != board.getField(x,y).getType()) {
-                board.setField(x + 1,y , Type.CORNER,board.getField(x + 1,y ).getColor());
+            if (board.getField(x + 1, y).getType() != board.getField(x, y).getType()) {
+                if (board.getField(x + 1, y).getType() != Type.CIRCLE)
+                    board.setField(x + 1, y, Type.CORNER, board.getField(x + 1, y).getColor());
 
                 return Type.HORIZONTAL;
-            };
+            }
+            ;
 
         default:
             return null;
