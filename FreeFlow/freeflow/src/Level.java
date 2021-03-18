@@ -4,6 +4,7 @@ import java.util.Scanner;
  * Jonathan Dom 12/13/2020
  */
 public class Level {
+    public static int timesWon = 0;
     private Board board;
     private int moves = 0;
 
@@ -23,6 +24,10 @@ public class Level {
         return moves;
     }
 
+    public int getTimesWon() {
+        return timesWon;
+    }
+
     private void createLevel(LevelSizes size) {
         board = new Board(size.getLevelSize());
         switch (size) {
@@ -40,7 +45,12 @@ public class Level {
     }
 
     public boolean checkIfWon() {
-        return (!board.checkForEmptyFields());
+        if (!board.checkForEmptyFields()) {
+            timesWon += 1;
+            return true;
+        } else {
+            return false;
+        }
     }
 
     public void makeMove() {
