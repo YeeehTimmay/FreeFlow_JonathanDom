@@ -15,7 +15,7 @@ public class IO {
         System.out.print(prompt + ": ");
         return IN.nextLine();
     }
-
+    //prompts you for the next integer in the console.
     public static int promptForInt(String prompt) {
         try {
             System.out.print(prompt + ": ");
@@ -25,7 +25,7 @@ public class IO {
             return promptForInt(prompt);
         }
     }
-
+    //prompts you for a yes or a no in the console.
     public static boolean promptForBoolean(String prompt) {
         System.out.print(prompt + " (y/n): ");
         String res = IN.nextLine();
@@ -35,7 +35,7 @@ public class IO {
         }
         return res.equalsIgnoreCase("y");
     }
-
+    //prompts you for the size of the level in the console. 
     public static LevelSizes promptForLevelSize() {
         switch (promptForInt("Choose 5, 6 or 7 for the level size")) {
         case 5:

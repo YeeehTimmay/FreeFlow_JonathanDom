@@ -8,12 +8,12 @@ public class Level {
     private int moves = 0;
     private int maxColors;
     private int completedColor = 0;
-
+    //creates a level with the size you enter.
     public Level(LevelSizes size) {
         createLevel(size);
 
     }
-
+    //shows the board in the console.
     public void showBoard() {
         System.out.println(board);
     }
@@ -29,7 +29,7 @@ public class Level {
     public int getCompletedColor() {
         return completedColor;
     }
-
+    //this creates the level with the size that you enter. This also gives you a random level in that size category. In this instance, there are two different levels per category.
     private void createLevel(LevelSizes size) {
         board = new Board(size.getLevelSize());
         switch (size) {
@@ -45,11 +45,12 @@ public class Level {
         }
 
     }
-
+    //This checks if you have completed the board correctly, using the correct colors.
     public boolean checkIfWon() {
         return !board.checkForEmptyFields() && completedColor >= maxColors;
     }
-
+    //This is how you make a move on the board using x and y coordinates as well as the direction you choose to go to.
+    //This checks the previous fields that you come from and gets the correct color from that as well.
     public void makeMove() {
         try {
             Scanner scanner = new Scanner(System.in);
@@ -84,7 +85,8 @@ public class Level {
             makeMove();
         }
     }
-
+    //This checks what type the next field should be based on what direction you come from, and will turn a previous field into a corner if necessary.
+    //This will also add to a counter that checks if a color is completed.
     private Type getMoveType(int x, int y, Direction direction) {
         switch (direction) {
         case NORTH:
@@ -155,7 +157,7 @@ public class Level {
             return null;
         }
     }
-
+    //this turns your input into a direction to be used.
     private Direction getDirection(char charAt, int x, int y) {
         switch (Character.toLowerCase(charAt)) {
         case 'n':
@@ -172,7 +174,8 @@ public class Level {
             throw new IllegalArgumentException();
         }
     }
-
+    //This checks if the next field is a circle and if it is not empty. If it is a circle or it is not empty, it throws an error.
+    //It also checks if the line and the circle are the same color.
     private void checkNextField(int x, int y, Direction direction) {
         Field startField = board.getField(x, y);
         Field stopField = null;
@@ -196,7 +199,7 @@ public class Level {
         } else if (stopField.getType() != Type.EMPTY)
             throw new IllegalArgumentException();
     }
-
+    //This creates a "random" level based on the integer that was randomly generated. This also sets the maximum colors for that specific level.
     private void createLevel5(int level) {
         switch (level) {
         case 1:
@@ -304,7 +307,7 @@ public class Level {
 
         }
     }
-
+    //this returns a random integer to be used for "random" level choices.
     private int getRandomNumber(int min, int max) {
         return (int) (Math.random() * (max - min + 1) + min);
     }
