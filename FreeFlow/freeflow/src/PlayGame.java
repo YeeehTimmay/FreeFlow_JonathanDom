@@ -3,9 +3,8 @@
  */
 public class PlayGame {
     public static void main(String[] args) {
-        IO io = new IO();
         Player player = new Player("A");
-        Level level = new Level(io.promptForLevelSize());
+        Level level = new Level(IO.promptForLevelSize());
         while (!level.checkIfWon()) {
             level.showBoard();
             level.makeMove();
