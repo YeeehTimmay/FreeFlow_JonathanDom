@@ -24,7 +24,7 @@ public class Level {
         return moves;
     }
 
-    public int getTimesWon() {
+    public static int getTimesWon() {
         return timesWon;
     }
 
