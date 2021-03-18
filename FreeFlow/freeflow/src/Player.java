@@ -24,7 +24,4 @@ public class Player {
     public void setHighscore(int highscore) {
         this.highscore = highscore;
     }
-
-    // TODO
-
 }

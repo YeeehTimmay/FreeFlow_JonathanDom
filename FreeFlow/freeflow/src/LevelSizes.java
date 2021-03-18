@@ -1,5 +1,5 @@
 public enum LevelSizes {
-    //these are the sizes for the levels that are possible.
+    // these are the sizes for the levels that are possible.
 
     size5(5), size6(6), size7(7);
 
@@ -14,4 +14,3 @@ public enum LevelSizes {
         return size;
     }
 }
-

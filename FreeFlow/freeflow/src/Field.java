@@ -6,7 +6,8 @@ public class Field {
     private int y;
     private Type type;
     private Colors color;
-    //make a field with x coordinate, y coordinate, a field type and a color.
+
+    // make a field with x coordinate, y coordinate, a field type and a color.
     public Field(int x, int y, Type type, Colors color) {
         if (x >= 0 && y >= 0) {
             this.x = x;
@@ -17,6 +18,7 @@ public class Field {
             throw new IllegalArgumentException();
         }
     }
+
     // calls the first constructor with color null.
     public Field(int x, int y, Type type) {
         this(x, y, type, null);
@@ -45,7 +47,9 @@ public class Field {
     public void setColor(Colors color) {
         this.color = color;
     }
-    // checks if there is a color. If so, we show it with the color, otherwise we don't show a color.
+
+    // checks if there is a color. If so, we show it with the color, otherwise we
+    // don't show a color.
     @Override
     public String toString() {
         if (color != null) {
