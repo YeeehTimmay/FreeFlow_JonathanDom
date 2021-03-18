@@ -7,6 +7,7 @@ public class PlayGame {
         Level level = new Level(IO.promptForLevelSize());
         while (!level.checkIfWon()) {
             level.showBoard();
+            System.out.println(Integer.toString(level.getCompletedColor()));
             level.makeMove();
         }
     }
