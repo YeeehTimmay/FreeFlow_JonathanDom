@@ -73,18 +73,22 @@ public class Level {
     private Type getMoveType(int x, int y, Direction direction) {
         switch (direction) {
         case NORTH:
+            y -= 1;
             if ((x == 0 || x == board.getSize() - 1) && y == 0)
                 return Type.CORNER;
             return Type.VERTICAL;
         case EAST:
+            x += 1;
             if ((y == 0 || y == board.getSize() - 1) && x == board.getSize() - 1)
                 return Type.CORNER;
             return Type.HORIZONTAL;
         case SOUTH:
+            y += 1;
             if ((x == 0 || x == board.getSize() - 1) && y == board.getSize() - 1)
                 return Type.CORNER;
             return Type.VERTICAL;
         case WEST:
+            x -= 1;
             if ((y == 0 || y == board.getSize() - 1) && x == 0)
                 return Type.CORNER;
             return Type.HORIZONTAL;
