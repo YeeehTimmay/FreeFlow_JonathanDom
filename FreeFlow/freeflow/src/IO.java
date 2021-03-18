@@ -1,41 +1,42 @@
 import java.util.Scanner;
 
 public class IO {
-    private final Scanner in = new Scanner(System.in);
+    public final static Scanner IN = new Scanner(System.in);
 
-    public void show(String str) {
+    private IO() {
+        // * this is a utility class and cannot be instantiated
+    }
+
+    public static void show(String str) {
         System.out.println(str);
     }
-
-    public String promptForText(String prompt) {
+    
+    public static String promptForText(String prompt) {
         System.out.print(prompt + ": ");
-        return in.nextLine();
+        return IN.nextLine();
     }
 
-    public int promptForInt(String prompt) {
+    public static int promptForInt(String prompt) {
         try {
             System.out.print(prompt + ": ");
-            int res = Integer.parseInt(in.nextLine());
+            int res = Integer.parseInt(IN.nextLine());
             return res;
         } catch (Exception e) {
             return promptForInt(prompt);
         }
     }
 
-
-    public boolean promptForBoolean(String prompt) {
+    public static boolean promptForBoolean(String prompt) {
         System.out.print(prompt + " (y/n): ");
-        String res = in.nextLine();
+        String res = IN.nextLine();
         while (!(res.equalsIgnoreCase("y") || res.equalsIgnoreCase("n"))) {
             System.out.println("(again)" + prompt + " (y/n): ");
-            res = in.nextLine();
+            res = IN.nextLine();
         }
         return res.equalsIgnoreCase("y");
     }
 
-
-
-    public LevelSizes promptForLevelSize() {
+    public static LevelSizes promptForLevelSize() {
         switch (promptForInt("Choose 5, 6 or 7 for the level size")) {
         case 5:
             return LevelSizes.size5;
