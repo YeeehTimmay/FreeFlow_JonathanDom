@@ -15,6 +15,14 @@ public class Level {
         System.out.println(board);
     }
 
+    public Board getBoard() {
+        return board;
+    }
+
+    public int getMoves() {
+        return moves;
+    }
+
     private void createLevel(LevelSizes size) {
         board = new Board(size.getLevelSize());
         switch (size) {
