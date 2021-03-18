@@ -190,7 +190,6 @@ public class Level {
             board.setField(2, 4, Type.CIRCLE, Colors.PURPLE);
             board.setField(2, 0, Type.CIRCLE, Colors.CYAN);
             board.setField(2, 2, Type.CIRCLE, Colors.CYAN);
-
             break;
         case 2:
             board.setField(3, 2, Type.CIRCLE, Colors.RED);
@@ -205,7 +204,6 @@ public class Level {
             board.setField(5, 4, Type.CIRCLE, Colors.PURPLE);
             board.setField(3, 3, Type.CIRCLE, Colors.CYAN);
             board.setField(4, 4, Type.CIRCLE, Colors.CYAN);
-
             break;
         default:
             throw new IllegalArgumentException();
@@ -227,7 +225,6 @@ public class Level {
             board.setField(5, 1, Type.CIRCLE, Colors.PURPLE);
             board.setField(4, 3, Type.CIRCLE, Colors.CYAN);
             board.setField(6, 6, Type.CIRCLE, Colors.CYAN);
-
             break;
         case 2:
             board.setField(2, 0, Type.CIRCLE, Colors.RED);
@@ -244,7 +241,6 @@ public class Level {
             board.setField(5, 4, Type.CIRCLE, Colors.CYAN);
             board.setField(1, 0, Type.CIRCLE, Colors.WHITE);
             board.setField(2, 6, Type.CIRCLE, Colors.WHITE);
-
             break;
         default:
             throw new IllegalArgumentException();
