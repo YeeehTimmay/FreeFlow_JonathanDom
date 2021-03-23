@@ -102,55 +102,46 @@ public class Level {
     // come from, and will turn a previous field into a corner if necessary.
     // This will also add to a counter that checks if a color is completed.
     private Type getMoveType(int x, int y, Direction direction) {
-        Field currentField, newField;
-        Type directionType;
-        int currentX = x;
-        int currentY = y;
-
         switch (direction) {
             case NORTH:
-                y -= 1;
-                if ((x == 0 || x == board.getSize() - 1) && y == 0) return Type.CORNER;
-                directionType = Type.VERTICAL;
-                break;
+                return checkType(x, y, x, y - 1, Type.VERTICAL);
             case EAST:
-                x += 1;
-                if ((y == 0 || y == board.getSize() - 1) && x == board.getSize() - 1) return Type.CORNER;
-                directionType = Type.HORIZONTAL;
-                break;
+                return checkType(x, y, x + 1, y, Type.HORIZONTAL);
             case SOUTH:
-                y += 1;
-                if ((x == 0 || x == board.getSize() - 1) && y == board.getSize() - 1)  return Type.CORNER;
-                directionType = Type.VERTICAL;
-                break;
+                return checkType(x, y, x, y + 1, Type.VERTICAL);
             case WEST:
-                x -= 1;
-                if ((y == 0 || y == board.getSize() - 1) && x == 0) return Type.CORNER;
-                directionType = Type.HORIZONTAL;
-                break;
+                return checkType(x, y, x - 1, y, Type.HORIZONTAL);
             default:
                 return null;
         }
+    }
 
-        currentField = board.getField(currentX, currentY);
-        newField = board.getField(x, y);
-
-        if (newField.getType() == Type.CIRCLE){
-            if (newField.getColor() == currentField.getColor()){
-                if (currentField.getType() != directionType){
-                    board.setField(currentX, currentY, Type.CORNER, currentField.getColor());
-                }
-                completedColor += 1;
+    private Type checkType(int xStart, int yStart, int xStop, int yStop, Type direction) {
+        Field startField = board.getField(xStart, yStart);
+        Field stopField = board.getField(xStop, yStop);
+        if (stopField.getType() == Type.CIRCLE) {
+            if (startField.getColor() == stopField.getColor()) {
+                if (startField.getType() != direction)
+                    startField.setType(Type.CORNER);
+                if (startField.getColor() == stopField.getColor())
+                    completedColor += 1;
+                return Type.CIRCLE;
             }
-
-            return Type.CIRCLE;
+        } else if (stopField.getType() == Type.EMPTY) {
+            if (startField.getType() != direction && startField.getType() != Type.CIRCLE)
+                startField.setType(Type.CORNER);
+            if (stopField.getX() == 0 && stopField.getY() == 0)
+                return Type.CORNER;
+            else if (stopField.getX() == board.getSize() - 1 && stopField.getY() == 0)
+                return Type.CORNER;
+            else if (stopField.getX() == 0 && stopField.getY() == board.getSize() - 1)
+                return Type.CORNER;
+            else if (stopField.getX() == board.getSize() - 1 && stopField.getY() == board.getSize() - 1)
+                return Type.CORNER;
+            else
+                return direction;
         }
-        else if (currentField.getType() != directionType){
-            if (currentField.getType() != Type.CIRCLE){
-                board.setField(currentX, currentY, Type.CORNER, currentField.getColor());
-            }
-        }
-        return directionType;
+        return null;
     }
 
     // this turns your input into a direction to be used.
