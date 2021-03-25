@@ -12,7 +12,6 @@ public class PlayGame {
 
             level.makeMove();
             level.showBoard();
-
         }
 
         System.out.println("You have completed the level. ");

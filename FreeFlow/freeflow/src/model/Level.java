@@ -115,7 +115,7 @@ public class Level {
                 return null;
         }
     }
-
+        //This checks if the next move you make goes into a circle so you don't accidentally overwrite it with a direction piece.
     private Type checkType(int xStart, int yStart, int xStop, int yStop, Type direction) {
         Field startField = board.getField(xStart, yStart);
         Field stopField = board.getField(xStop, yStop);
@@ -127,6 +127,8 @@ public class Level {
                     completedColor += 1;
                 return Type.CIRCLE;
             }
+            //checks if you are working in a corner and will place a corner piece automatically. If not, it will just
+            //return the direction you entered.
         } else if (stopField.getType() == Type.EMPTY) {
             if (startField.getType() != direction && startField.getType() != Type.CIRCLE)
                 startField.setType(Type.CORNER);

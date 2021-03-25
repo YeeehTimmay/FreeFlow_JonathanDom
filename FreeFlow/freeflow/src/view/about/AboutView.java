@@ -6,4 +6,18 @@ package view.about;
  */
 public class AboutView {
 
+    private void layoutNodes() {
+
+
+
+
+
+    }
+
+    private void initializeNodes() {
+
+
+
+    }
+
 }
