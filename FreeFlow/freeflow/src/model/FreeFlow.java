@@ -6,16 +6,19 @@ import java.util.*;
  * Jonathan Dom 12/13/2020
  */
 public class FreeFlow {
-    Scanner scanner = new Scanner(System.in);
-    private Player player;
-    private Level level;
+    public static void main(String[] args) {
+        Player player = new Player(IO.promptForText("Welcome! Enter your name here"));
+        Level level = new Level(IO.promptForLevelSize());
+        level.showBoard();
+        while (!level.checkIfWon()) {
+            System.out.print(player.getName() + ", ");
+            level.makeMove();
+            level.showBoard();
+        }
 
-
-    public void Start() {
-        System.out.print("Select level: ");
-        // level.getLevel(scanner.nextInt());
+        System.out.println("You have completed the level. ");
     }
 
-    // private static model.Settings view.settings;
+    }
 
-}
+
