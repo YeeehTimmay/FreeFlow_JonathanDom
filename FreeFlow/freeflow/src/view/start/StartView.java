@@ -6,6 +6,7 @@ import javafx.scene.canvas.Canvas;
 import javafx.scene.control.*;
 import javafx.scene.image.Image;
 import javafx.scene.layout.*;
+import javafx.scene.paint.Color;
 import javafx.scene.text.Font;
 
 
@@ -62,16 +63,18 @@ public class StartView extends BorderPane {
         this.setCenter(vbox);
 
         lblTitle.setFont(new Font(150));
+        lblTitle.setTextFill(Color.WHITE);
 
-        btnStart.setPrefSize(400,200);
-        btnSettings.setPrefSize(400,200);
+        btnStart.setPrefSize(200,75);
+        btnSettings.setPrefSize(200,75);
 
         this.setAlignment(lblTitle,Pos.CENTER);
         this.setAlignment(vbox,Pos.CENTER);
         vbox.setAlignment(Pos.CENTER);
+        vbox.setSpacing(15);
         //this.setPadding(new Insets(30,30,30,30));
         //btnStart.setPadding(new Insets(30,30,30,30));
-        this.setBackground(new Background(new BackgroundImage(new Image("shrek.png"),
+        this.setBackground(new Background(new BackgroundImage(new Image("background.jpg"),
                 BackgroundRepeat.NO_REPEAT,
                 BackgroundRepeat.NO_REPEAT,
                 BackgroundPosition.CENTER,

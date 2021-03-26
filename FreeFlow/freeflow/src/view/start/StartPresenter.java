@@ -2,12 +2,10 @@ package view.start;
 
 import javafx.event.ActionEvent;
 import javafx.event.EventHandler;
-import javafx.scene.canvas.GraphicsContext;
 import javafx.scene.control.Alert;
-import javafx.scene.input.MouseEvent;
 import model.Level;
-import view.game.FreeFlowPresenter;
-import view.game.FreeFlowView;
+import view.game.GamePresenter;
+import view.game.GameView;
 
 /**
  * Jonathan Dom
@@ -34,8 +32,8 @@ public class StartPresenter {
         view.getBtnStart().setOnAction(new EventHandler<ActionEvent>() {
             @Override
             public void handle(ActionEvent event) {
-                FreeFlowView gameview = new FreeFlowView();
-                FreeFlowPresenter gamePresenter = new FreeFlowPresenter(model,gameview);
+                GameView gameview = new GameView();
+                GamePresenter gamePresenter = new GamePresenter(model,gameview);
                 view.getScene().setRoot(gameview);
                 gameview.getScene().getWindow().sizeToScene();
             }
@@ -66,8 +64,8 @@ public class StartPresenter {
     private void showComingSoon(){
         Alert alert = new Alert(Alert.AlertType.ERROR);
         alert.setTitle("Error");
-        alert.setHeaderText("Dit deel is not niet afgewerkt.");
-        alert.setContentText("Coming soon...");
+        alert.setHeaderText("Wegens gebrek aan tijd is dit jammer genoeg niet af geraakt.");
+        alert.setContentText("Coming soon... Hopefully");
         alert.showAndWait();
     }
 }
